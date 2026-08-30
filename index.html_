@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S2B2 Connect</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🌐 <span>S2B2 Connect</span>
+    </div>
+
+    <nav>
+
+        <a href="#">Home</a>
+
+        <a href="#">Tentang</a>
+
+        <a href="#">Aspirasi</a>
+
+        <a href="#">Inspirasi</a>
+
+        <a href="login.html" class="login-btn">Login</a>
+
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            Membangun Generasi Berprestasi Melalui Kolaborasi Digital
+        </h1>
+
+        <p>
+            S2B2 Connect adalah platform kolaborasi digital yang mempertemukan
+            siswa berprestasi, kritis, dan inspiratif untuk menyampaikan
+            aspirasi, mencari solusi, serta berbagi inspirasi demi masa depan
+            pendidikan Indonesia.
+        </p>
+
+        <div class="buttons">
+
+            <a href="login.html" class="btn-green">
+                Mulai Bergabung
+            </a>
+
+            <a href="#" class="btn-white">
+                Lihat Demo
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+
+       <img src="img.png" width="300">
+
+    </div>
+
+</section>
+
+<section class="fitur">
+
+    <div class="card">
+
+        <h2>💬 Aspirasi</h2>
+
+        <p>
+            Sampaikan ide dan permasalahan secara terbuka.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>💡 Solusi</h2>
+
+        <p>
+            Diskusikan solusi terbaik bersama siswa lain.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>🏆 Inspirasi</h2>
+
+        <p>
+            Bagikan prestasi dan pengalaman yang menginspirasi.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="statistik">
+
+    <div>
+
+        <h2>250+</h2>
+
+        <p>Siswa</p>
+
+    </div>
+
+    <div>
+
+        <h2>50+</h2>
+
+        <p>Aspirasi</p>
+
+    </div>
+
+    <div>
+
+        <h2>30+</h2>
+
+        <p>Solusi</p>
+
+    </div>
+
+    <div>
+
+        <h2>12</h2>
+
+        <p>Sekolah</p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <h3>S2B2 Connect</h3>
+
+    <p>
+        Dari Aspirasi Menjadi Aksi, Dari Ide Menjadi Inspirasi.
+    </p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
