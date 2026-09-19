@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | S2B2 Connect</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .login-card h1 {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .login-card p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .login-card label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: 600;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .login-card button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background: #10B981;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-card button:hover {
+            opacity: 0.9;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .register-link a {
+            color: #10B981;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <h1>🌐 S2B2 Connect</h1>
+
+        <p>Masuk ke akun S2B2 Connect kamu</p>
+
+        <form id="loginForm">
+
+            <label for="email">Email</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Masukkan email"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Masukkan password"
+                required
+            >
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+        <div id="message"></div>
+
+        <div class="register-link">
+            Belum punya akun?
+            <a href="register.html">Daftar sekarang</a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+    const SUPABASE_URL = "https://qbqabvihdfwsmruicgbj.supabase.co";
+
+    /*
+      Gunakan PUBLISHABLE KEY yang sama
+      dengan yang sudah kamu gunakan di app.js.
+      
+      JANGAN gunakan Secret / Service Role Key.
+    */
+    const SUPABASE_KEY = "TEMPEL_PUBLISHABLE_KEY_KAMU_DI_SINI";
+
+    const supabaseClient = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+    const loginForm = document.getElementById("loginForm");
+    const message = document.getElementById("message");
+
+    loginForm.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        message.textContent = "Sedang login...";
+
+        const { data, error } =
+            await supabaseClient.auth.signInWithPassword({
+                email: email,
+                password: password
+            });
+
+        if (error) {
+            message.textContent = "Login gagal: " + error.message;
+            console.error(error);
+            return;
+        }
+
+        message.textContent = "Login berhasil!";
+
+        console.log("Login berhasil:", data);
+
+        setTimeout(function() {
+            window.location.href = "index.html";
+        }, 1000);
+
+    });
+</script>
+
+</body>
+</html>
