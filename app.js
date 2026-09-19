@@ -22,10 +22,13 @@ if (registerForm) {
 
         message.textContent = "Mendaftarkan akun...";
 
-        const { data, error } = await supabaseClient.auth.signUp({
-            email: email,
-            password: password
-        });
+      const { data, error } = await supabaseClient.auth.signUp({
+    email: email,
+    password: password,
+    options: {
+        emailRedirectTo: "https://rafkysyafrianto17-creator.github.io/s2b2-connect/"
+    }
+});
 
         if (error) {
             message.textContent = "Gagal: " + error.message;
